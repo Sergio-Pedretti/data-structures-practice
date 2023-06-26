@@ -8,6 +8,7 @@ class MyLinkedList
 public:
     void insertBegin(int element);
     void insertEnd(int element);
+    void insertAtIndex(int element, int index);
     void print();
     MyLinkedList();
 };

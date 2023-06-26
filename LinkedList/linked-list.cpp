@@ -49,3 +49,25 @@ void MyLinkedList::insertEnd(int element)
 
     temp->next = newNode;
 }
+
+void MyLinkedList::insertAtIndex(int element, int index)
+{
+    Node *newNode = new Node(element);
+
+    if (index == 1)
+    {
+        newNode->next = head;
+        head = newNode;
+        return;
+    }
+
+    Node *temp2 = head;
+
+    for (int counter = 0; counter < index - 2; counter++)
+    {
+        temp2 = temp2->next;
+    }
+
+    newNode->next = temp2->next;
+    temp2->next = newNode;
+}

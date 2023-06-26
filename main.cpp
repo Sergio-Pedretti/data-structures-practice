@@ -4,10 +4,9 @@
 int main()
 {
     MyLinkedList list;
-    list.insertEnd(2);
-    list.insertEnd(5);
-    list.insertEnd(8);
-    list.insertEnd(10);
-    list.insertEnd(4);
+    list.insertAtIndex(2, 1); // 2
+    list.insertAtIndex(3, 2); // 2, 3
+    list.insertAtIndex(4, 1); // 4, 2, 3
+    list.insertAtIndex(5, 2); // 4, 5, 2, 3
     list.print();
 }
