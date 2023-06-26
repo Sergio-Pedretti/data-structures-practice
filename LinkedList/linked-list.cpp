@@ -30,3 +30,22 @@ void MyLinkedList::insertBegin(int element)
     }
     head = temp;
 }
+
+void MyLinkedList::insertEnd(int element)
+{
+    Node *newNode = new Node(element);
+    Node *temp = head;
+
+    if (temp == nullptr)
+    {
+        head = newNode;
+        return;
+    }
+
+    while (temp->next != nullptr)
+    {
+        temp = temp->next;
+    }
+
+    temp->next = newNode;
+}

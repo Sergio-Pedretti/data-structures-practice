@@ -7,6 +7,7 @@ class MyLinkedList
 
 public:
     void insertBegin(int element);
+    void insertEnd(int element);
     void print();
     MyLinkedList();
 };
