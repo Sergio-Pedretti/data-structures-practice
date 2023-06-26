@@ -71,3 +71,18 @@ void MyLinkedList::insertAtIndex(int element, int index)
     newNode->next = temp2->next;
     temp2->next = newNode;
 }
+
+void MyLinkedList::deleteAtIndex(int index)
+{
+    Node *temp = head;
+
+    for (int counter = 0; counter < index - 2; counter++)
+    {
+        temp = temp->next;
+    }
+
+    Node *temp2 = temp->next;
+    temp->next = temp2->next;
+
+    delete temp2;
+}
