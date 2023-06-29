@@ -134,8 +134,30 @@ Node *MyLinkedList::searchElement(int element)
     {
         if (temp->value == element)
         {
+            std::cout << "Element " << temp->value << " found" << std::endl;
             return temp;
         }
         temp = temp->next;
     }
+    temp->next = nullptr;
+    temp->value = 0;
+    return temp;
+}
+
+bool MyLinkedList::isSorted()
+{
+    Node *temp, *temp2 = head;
+
+    while (temp != nullptr)
+    {
+        if (temp->value < temp2->value)
+        {
+            std::cout << "Not sorted" << std::endl;
+            return false;
+        }
+        temp2 = temp;
+        temp = temp->next;
+    }
+    std::cout << "Sorted" << std::endl;
+    return true;
 }

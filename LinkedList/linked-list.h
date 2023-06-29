@@ -16,5 +16,6 @@ public:
     void printRecursive(Node *start);
     void countAllNodes();
     void sumAllNodes();
+    bool isSorted();
     MyLinkedList();
 };
