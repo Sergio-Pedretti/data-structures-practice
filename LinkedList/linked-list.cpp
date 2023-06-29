@@ -36,6 +36,30 @@ void MyLinkedList::printRecursive(Node *start)
     printRecursive(start->next);
 }
 
+void MyLinkedList::countAllNodes()
+{
+    int counter = 0;
+    Node *temp = head;
+    while (temp != nullptr)
+    {
+        counter++;
+        temp = temp->next;
+    }
+    std::cout << "List has " << counter << " nodes" << std::endl;
+}
+
+void MyLinkedList::sumAllNodes()
+{
+    int sum = 0;
+    Node *temp = head;
+    while (temp != nullptr)
+    {
+        sum += temp->value;
+        temp = temp->next;
+    }
+    std::cout << "Total sum list: " << sum << std::endl;
+}
+
 void MyLinkedList::insertBegin(int element)
 {
     Node *temp = new Node(element);

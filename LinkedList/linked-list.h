@@ -13,5 +13,7 @@ public:
     void deleteAtIndex(int index);
     void print();
     void printRecursive(Node *start);
+    void countAllNodes();
+    void sumAllNodes();
     MyLinkedList();
 };
