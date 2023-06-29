@@ -5,6 +5,11 @@ MyLinkedList::MyLinkedList()
     head = nullptr;
 }
 
+Node *MyLinkedList::getHead()
+{
+    return this->head;
+}
+
 void MyLinkedList::print()
 {
     if (head == nullptr)
@@ -19,6 +24,16 @@ void MyLinkedList::print()
         std::cout << temp->value << std::endl;
         temp = temp->next;
     }
+}
+
+void MyLinkedList::printRecursive(Node *start)
+{
+    if (start == nullptr)
+    {
+        return;
+    }
+    std::cout << start->value << std::endl;
+    printRecursive(start->next);
 }
 
 void MyLinkedList::insertBegin(int element)
