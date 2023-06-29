@@ -125,3 +125,17 @@ void MyLinkedList::deleteAtIndex(int index)
 
     delete temp2;
 }
+
+Node *MyLinkedList::searchElement(int element)
+{
+    Node *temp = head;
+
+    while (temp != nullptr)
+    {
+        if (temp->value == element)
+        {
+            return temp;
+        }
+        temp = temp->next;
+    }
+}

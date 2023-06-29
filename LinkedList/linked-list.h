@@ -11,6 +11,7 @@ public:
     void insertEnd(int element);
     void insertAtIndex(int element, int index);
     void deleteAtIndex(int index);
+    Node *searchElement(int element);
     void print();
     void printRecursive(Node *start);
     void countAllNodes();

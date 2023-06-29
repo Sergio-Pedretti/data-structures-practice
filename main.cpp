@@ -15,4 +15,6 @@ int main()
     list.printRecursive(list.getHead());
     list.countAllNodes();
     list.sumAllNodes();
+    Node *node = list.searchElement(5);
+    std::cout << &node << std::endl;
 }
