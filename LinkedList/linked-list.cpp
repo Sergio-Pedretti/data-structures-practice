@@ -161,3 +161,23 @@ bool MyLinkedList::isSorted()
     std::cout << "Sorted" << std::endl;
     return true;
 }
+
+void MyLinkedList::insertSorted(int element)
+{
+    Node *temp = head;
+    Node *temp2 = head;
+    Node *newNode = new Node(element);
+
+    while (temp != nullptr)
+    {
+        if (temp->value >= element)
+        {
+            newNode->next = temp;
+            temp2->next = newNode;
+            return;
+        }
+        temp2 = temp;
+        temp = temp->next;
+    }
+    temp2->next = newNode;
+}

@@ -17,5 +17,6 @@ public:
     void countAllNodes();
     void sumAllNodes();
     bool isSorted();
+    void insertSorted(int element);
     MyLinkedList();
 };
