@@ -20,4 +20,6 @@ int main()
     list.sumAllNodes();
     list.searchElement(5);
     list.isSorted();
+    list.reverseList();
+    list.print();
 }

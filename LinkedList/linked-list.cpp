@@ -139,8 +139,7 @@ Node *MyLinkedList::searchElement(int element)
         }
         temp = temp->next;
     }
-    temp->next = nullptr;
-    temp->value = 0;
+    std::cout << "Element " << element << " is not in the list" << std::endl;
     return temp;
 }
 
@@ -192,4 +191,28 @@ void MyLinkedList::insertSorted(int element)
         temp = temp->next;
     }
     temp2->next = newNode;
+}
+
+void MyLinkedList::reverseList()
+{
+    if (head == nullptr)
+    {
+        std::cout << "Empty List can not be reversed" << std::endl;
+        return;
+    }
+
+    Node *temp = head;
+    Node *temp2 = nullptr;
+    Node *temp3 = nullptr;
+
+    while (temp != nullptr)
+    {
+        temp3 = temp2;
+        temp2 = temp;
+        temp = temp->next;
+
+        temp2->next = temp3;
+    }
+
+    head = temp2;
 }

@@ -18,5 +18,6 @@ public:
     void sumAllNodes();
     bool isSorted();
     void insertSorted(int element);
+    void reverseList();
     MyLinkedList();
 };
