@@ -22,4 +22,5 @@ int main()
     list.isSorted();
     list.reverseList();
     list.print();
+    list.checkForLoop();
 }

@@ -216,3 +216,34 @@ void MyLinkedList::reverseList()
 
     head = temp2;
 }
+
+bool MyLinkedList::checkForLoop()
+{
+    if (head == nullptr)
+    {
+        std::cout << "Empty List" << std::endl;
+        return false;
+    }
+
+    Node *temp = head;
+    Node *temp2 = head;
+
+    do
+    {
+        temp = temp->next;
+        temp2 = temp2->next;
+
+        temp2 = temp2 ? temp2->next : temp2;
+
+    } while (temp != nullptr && temp2 != nullptr && temp != temp2);
+
+    if (temp == temp2)
+    {
+        std::cout << "Circular List (has loop)" << std::endl;
+        return true;
+    }
+
+    std::cout << "Linear List" << std::endl;
+
+    return false;
+}

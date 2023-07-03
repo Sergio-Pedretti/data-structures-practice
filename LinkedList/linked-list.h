@@ -19,5 +19,6 @@ public:
     bool isSorted();
     void insertSorted(int element);
     void reverseList();
+    bool checkForLoop();
     MyLinkedList();
 };
