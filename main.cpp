@@ -1,7 +1,8 @@
 #include <iostream>
-#include "./LinkedList/linked-list.cpp"
+#include "./CircularLinkedList/circular-linked-list.h"
+#include "./LinkedList/linked-list.h"
 
-int main()
+void testLinkedList()
 {
     MyLinkedList list;
     list.insertAtIndex(2, 1); // 2
@@ -23,4 +24,20 @@ int main()
     list.reverseList();
     list.print();
     list.checkForLoop();
+}
+
+void testCircularLinkedList()
+{
+    MyCircularLinkedList list;
+    list.insert(4);
+    list.insert(6);
+    list.insert(8);
+    list.insert(10);
+    list.insert(20);
+    list.print();
+}
+
+int main()
+{
+    testCircularLinkedList();
 }
