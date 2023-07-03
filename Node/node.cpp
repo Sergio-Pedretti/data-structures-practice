@@ -1,12 +1,6 @@
 #include "node.h"
 
-Node::Node()
-{
-    value = 0;
-    next = nullptr;
-}
-
-Node::Node(int newValue)
+Node::Node(int newValue = 0)
 {
     value = newValue;
     next = nullptr;
