@@ -10,6 +10,7 @@ int main()
     list.insertAtIndex(5, 2); // 4, 5, 2, 3
     list.insertSorted(15);    // 4, 5, 2, 3, 15
     list.insertSorted(8);     // 4, 5, 2, 3, 8, 15
+    list.insertSorted(3);     // 3, 4, 5, 2, 3, 8, 15
     list.print();
     list.countAllNodes();
     list.sumAllNodes();

@@ -168,10 +168,22 @@ void MyLinkedList::insertSorted(int element)
     Node *temp2 = head;
     Node *newNode = new Node(element);
 
+    if (head == nullptr)
+    {
+        head = newNode;
+        return;
+    }
+
     while (temp != nullptr)
     {
         if (temp->value >= element)
         {
+            if (temp == head)
+            {
+                newNode->next = temp;
+                head = newNode;
+                return;
+            }
             newNode->next = temp;
             temp2->next = newNode;
             return;
