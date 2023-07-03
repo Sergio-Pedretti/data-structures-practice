@@ -1,5 +1,8 @@
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
+
 #include <iostream>
-#include "../Node/node.cpp"
+#include "../Node/node.h"
 
 class MyLinkedList
 {
@@ -22,3 +25,5 @@ public:
     bool checkForLoop();
     MyLinkedList();
 };
+
+#endif
