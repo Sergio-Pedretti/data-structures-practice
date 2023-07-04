@@ -1,6 +1,7 @@
 #include <iostream>
-#include "./CircularLinkedList/circular-linked-list.h"
 #include "./LinkedList/linked-list.h"
+#include "./CircularLinkedList/circular-linked-list.h"
+#include "./DoubleLinkedList/double-linked-list.h"
 
 void testLinkedList()
 {
@@ -39,7 +40,18 @@ void testCircularLinkedList()
     list.print();
 }
 
+void testDoubleLinkedList()
+{
+    MyDoubleLinkedList list;
+    list.insertAtIndex(4, 0);  // 4
+    list.insertAtIndex(5, 1);  // 4, 5
+    list.insertAtIndex(7, 2);  // 4, 5, 7
+    list.insertAtIndex(20, 3); // 4, 5, 7, 20
+    list.insertAtIndex(47, 3); // 4, 5, 7, 47, 20
+    list.print();
+}
+
 int main()
 {
-    testCircularLinkedList();
+    testDoubleLinkedList();
 }
