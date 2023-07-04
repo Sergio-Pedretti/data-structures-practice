@@ -35,6 +35,8 @@ void testCircularLinkedList()
     list.insert(10);
     list.insert(20);
     list.print();
+    list.deleteAtIndex(0);
+    list.print();
 }
 
 int main()

@@ -7,6 +7,7 @@
 class MyCircularLinkedList
 {
     Node *head;
+    void deleteHead();
 
 public:
     Node *getHead();

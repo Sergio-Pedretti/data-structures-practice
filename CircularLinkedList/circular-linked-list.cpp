@@ -52,3 +52,43 @@ void MyCircularLinkedList::insert(int element)
     newNode->next = temp;
     temp2->next = newNode;
 }
+
+void MyCircularLinkedList::deleteHead()
+{
+    Node *temp = head;
+
+    while (temp->next != head)
+    {
+        temp = temp->next;
+    }
+
+    temp->next = head->next;
+    delete head;
+    head = temp->next;
+}
+
+void MyCircularLinkedList::deleteAtIndex(int index)
+{
+    if (head == nullptr)
+    {
+        std::cout << "List empty" << std::endl;
+        return;
+    }
+
+    if (index == 0)
+    {
+        this->deleteHead();
+        return;
+    }
+    Node *temp = head;
+
+    for (int counter = 0; counter < index - 2; counter++)
+    {
+        temp = temp->next;
+    }
+
+    Node *temp2 = temp->next;
+    temp->next = temp2->next;
+
+    delete temp2;
+}
