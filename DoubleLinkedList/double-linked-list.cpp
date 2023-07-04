@@ -26,16 +26,6 @@ void MyDoubleLinkedList::print()
     }
 }
 
-void MyDoubleLinkedList::printRecursive(DoubleNode *start)
-{
-    if (start == nullptr)
-    {
-        return;
-    }
-    std::cout << start->value << std::endl;
-    printRecursive(start->next);
-}
-
 void MyDoubleLinkedList::countAllNodes()
 {
     int counter = 0;
@@ -72,25 +62,6 @@ void MyDoubleLinkedList::insertBegin(int element)
     head = newNode;
 }
 
-void MyDoubleLinkedList::insertEnd(int element)
-{
-    DoubleNode *newDoubleNode = new DoubleNode(element);
-    DoubleNode *temp = head;
-
-    if (temp == nullptr)
-    {
-        head = newDoubleNode;
-        return;
-    }
-
-    while (temp->next != nullptr)
-    {
-        temp = temp->next;
-    }
-
-    temp->next = newDoubleNode;
-}
-
 void MyDoubleLinkedList::insertAtIndex(int element, int index)
 {
 
@@ -122,19 +93,46 @@ void MyDoubleLinkedList::insertAtIndex(int element, int index)
     temp->next = newDoubleNode;
 }
 
-void MyDoubleLinkedList::deleteAtIndex(int index)
+void MyDoubleLinkedList::deleteBegin()
 {
     DoubleNode *temp = head;
 
-    for (int counter = 0; counter < index - 2; counter++)
+    head = head->next;
+    head->previous = nullptr;
+    delete temp;
+}
+
+void MyDoubleLinkedList::deleteAtIndex(int index)
+{
+    if (head == nullptr)
+    {
+        return;
+    }
+
+    if (index == 0)
+    {
+        this->deleteBegin();
+        return;
+    }
+
+    DoubleNode *temp = head;
+
+    for (int counter = 0; counter < index; counter++)
     {
         temp = temp->next;
     }
 
-    DoubleNode *temp2 = temp->next;
-    temp->next = temp2->next;
+    if (temp->next == nullptr)
+    {
+        temp->previous->next = nullptr;
+        delete temp;
+        return;
+    }
 
-    delete temp2;
+    temp->previous->next = temp->next;
+    temp->next->previous = temp->previous;
+
+    delete temp;
 }
 
 DoubleNode *MyDoubleLinkedList::searchElement(int element)

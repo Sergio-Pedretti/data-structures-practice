@@ -49,6 +49,15 @@ void testDoubleLinkedList()
     list.insertAtIndex(20, 3); // 4, 5, 7, 20
     list.insertAtIndex(47, 3); // 4, 5, 7, 47, 20
     list.print();
+    std::cout << "----------" << std::endl;
+    list.deleteBegin(); // 5, 7, 47, 20
+    list.print();
+    std::cout << "----------" << std::endl;
+    list.deleteAtIndex(2); // 5, 7, 20
+    list.print();
+    std::cout << "----------" << std::endl;
+    list.deleteAtIndex(2); // 5, 7
+    list.print();
 }
 
 int main()

@@ -11,12 +11,11 @@ class MyDoubleLinkedList
 public:
     DoubleNode *getHead();
     void insertBegin(int element);
-    void insertEnd(int element);
     void insertAtIndex(int element, int index);
+    void deleteBegin();
     void deleteAtIndex(int index);
     DoubleNode *searchElement(int element);
     void print();
-    void printRecursive(DoubleNode *start);
     void countAllNodes();
     void sumAllNodes();
     bool isSorted();
