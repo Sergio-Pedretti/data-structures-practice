@@ -60,3 +60,15 @@ void MyStackList::peek()
 
     std::cout << "Peek: " << top->value << std::endl;
 }
+
+void MyStackList::clear()
+{
+    Node *temp = top;
+    while (temp != nullptr)
+    {
+        Node *temp2 = temp;
+        temp = temp->next;
+        delete temp2;
+    }
+    top = nullptr;
+}

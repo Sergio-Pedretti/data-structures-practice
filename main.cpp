@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string.h>
+
 #include "./LinkedList/linked-list.h"
 #include "./CircularLinkedList/circular-linked-list.h"
 #include "./DoubleLinkedList/double-linked-list.h"
@@ -125,7 +127,48 @@ void testStackWithList()
     std::cout << popped << std::endl;
 }
 
+int checkParenthesisMatch(char expression[])
+{
+    MyStackList stack;
+    int size = strlen(expression);
+    for (int i = 0; i < size; i++)
+    {
+        if (expression[i] == '(')
+        {
+            stack.push(expression[i]);
+        }
+        else if (expression[i] == ')')
+        {
+            char popped = stack.pop();
+            if (popped == -1)
+            {
+                return 0;
+            }
+        }
+    }
+    if (stack.isEmpty())
+    {
+        return 1;
+    }
+    return 0;
+}
+
+void testCheckParenthesis()
+{
+    char array[] = {'(', '(', 'a', '+', 'b', ')', '\0'};
+    int response = checkParenthesisMatch(array);
+    std::cout << response << std::endl;
+
+    char arrayTwo[] = {'(', '(', 'a', '+', 'b', ')', ')', '\0'};
+    int response2 = checkParenthesisMatch(arrayTwo);
+    std::cout << response2 << std::endl;
+
+    char arrayThree[] = {'(', '(', 'a', '+', 'b', ')', ')', ')', '\0'};
+    int response3 = checkParenthesisMatch(arrayThree);
+    std::cout << response3 << std::endl;
+}
+
 int main()
 {
-    testStackWithList();
+    testCheckParenthesis();
 }

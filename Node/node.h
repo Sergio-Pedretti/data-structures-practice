@@ -4,9 +4,9 @@
 class Node
 {
 public:
-    int value;
+    char value;
     Node *next;
-    Node(int value);
+    Node(char value);
 };
 
 #endif

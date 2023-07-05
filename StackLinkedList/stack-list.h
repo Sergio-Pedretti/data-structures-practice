@@ -15,6 +15,7 @@ public:
     int pop();
     bool isEmpty();
     void peek();
+    void clear();
 };
 
 #endif
