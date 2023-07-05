@@ -3,6 +3,7 @@
 #include "./CircularLinkedList/circular-linked-list.h"
 #include "./DoubleLinkedList/double-linked-list.h"
 #include "./StackArray/stack-array.h"
+#include "./StackLinkedList/stack-list.h"
 
 void testLinkedList()
 {
@@ -90,7 +91,41 @@ void testStackWithArray()
     stack.pop();
 }
 
+void testStackWithList()
+{
+    MyStackList stack;
+    std::cout << "----------------" << std::endl;
+    stack.push(2);
+    stack.push(4);
+    stack.peek();
+    std::cout << "----------------" << std::endl;
+    stack.display();
+    std::cout << "----------------" << std::endl;
+    stack.push(7);
+    stack.push(15);
+    stack.peek();
+    std::cout << "----------------" << std::endl;
+    stack.push(-5);
+    stack.display();
+    std::cout << "----------------" << std::endl;
+    stack.push(45);
+    int popped = stack.pop();
+    std::cout << popped << std::endl;
+    popped = stack.pop();
+    std::cout << popped << std::endl;
+    popped = stack.pop();
+    std::cout << popped << std::endl;
+    popped = stack.pop();
+    std::cout << popped << std::endl;
+    popped = stack.pop();
+    std::cout << popped << std::endl;
+    popped = stack.pop();
+    std::cout << popped << std::endl;
+    popped = stack.pop();
+    std::cout << popped << std::endl;
+}
+
 int main()
 {
-    testStackWithArray();
+    testStackWithList();
 }
