@@ -63,24 +63,33 @@ void testDoubleLinkedList()
 
 void testStackWithArray()
 {
-    int x;
+    int size;
     std::cout << "Enter stack size: " << std::endl;
-    std::cin >> x;
-    MyStackArray stack(x);
+    std::cin >> size;
+    MyStackArray stack(size);
     std::cout << "----------------" << std::endl;
     stack.push(2);
     stack.push(4);
+    stack.peek();
     stack.display();
     std::cout << "----------------" << std::endl;
     stack.push(7);
     stack.push(15);
+    stack.peek();
     stack.push(-5);
     stack.display();
     std::cout << "----------------" << std::endl;
     stack.push(2);
     int popped = stack.pop();
     std::cout << popped << std::endl;
+    stack.pop();
+    stack.pop();
+    stack.pop();
+    stack.pop();
+    stack.pop();
+    stack.pop();
 }
+
 int main()
 {
     testStackWithArray();

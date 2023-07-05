@@ -14,6 +14,9 @@ public:
     void display();
     void push(int value);
     int pop();
+    bool isEmpty();
+    bool isFull();
+    void peek();
 };
 
 #endif

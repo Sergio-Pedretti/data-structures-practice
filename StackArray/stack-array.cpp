@@ -17,9 +17,8 @@ void MyStackArray::display()
 
 void MyStackArray::push(int value)
 {
-    if (top == size - 1)
+    if (this->isFull())
     {
-        std::cout << "Stack is full (Stack would Overflow)" << std::endl;
         return;
     }
 
@@ -31,9 +30,8 @@ void MyStackArray::push(int value)
 int MyStackArray::pop()
 {
     int value = -1;
-    if (top == -1)
+    if (this->isEmpty())
     {
-        std::cout << "Stack is empty" << std::endl;
     }
     else
     {
@@ -41,4 +39,32 @@ int MyStackArray::pop()
         top--;
     }
     return value;
+}
+
+bool MyStackArray::isEmpty()
+{
+    if (top == -1)
+    {
+        std::cout << "Stack is empty" << std::endl;
+        return true;
+    }
+    return false;
+}
+
+bool MyStackArray::isFull()
+{
+    if (top == size - 1)
+    {
+        std::cout << "Stack is full (Stack would Overflow)" << std::endl;
+        return true;
+    }
+    return false;
+}
+
+void MyStackArray::peek()
+{
+    if (this->isEmpty())
+        return;
+
+    std::cout << "Peek: " << s[top] << std::endl;
 }
