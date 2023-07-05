@@ -2,6 +2,7 @@
 #include "./LinkedList/linked-list.h"
 #include "./CircularLinkedList/circular-linked-list.h"
 #include "./DoubleLinkedList/double-linked-list.h"
+#include "./StackArray/stack-array.h"
 
 void testLinkedList()
 {
@@ -60,7 +61,27 @@ void testDoubleLinkedList()
     list.print();
 }
 
+void testStackWithArray()
+{
+    int x;
+    std::cout << "Enter stack size: " << std::endl;
+    std::cin >> x;
+    MyStackArray stack(x);
+    std::cout << "----------------" << std::endl;
+    stack.push(2);
+    stack.push(4);
+    stack.display();
+    std::cout << "----------------" << std::endl;
+    stack.push(7);
+    stack.push(15);
+    stack.push(-5);
+    stack.display();
+    std::cout << "----------------" << std::endl;
+    stack.push(2);
+    int popped = stack.pop();
+    std::cout << popped << std::endl;
+}
 int main()
 {
-    testDoubleLinkedList();
+    testStackWithArray();
 }
