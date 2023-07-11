@@ -168,7 +168,89 @@ void testCheckParenthesis()
     std::cout << response3 << std::endl;
 }
 
+int isOperand(char operators)
+{
+    if (operators == '+' || operators == '-' || operators == '*' || operators == '/' || operators == '^')
+    {
+        return 0;
+    }
+    return 1;
+}
+
+int operatorPrecedency(char operators)
+{
+    if (operators == '+' || operators == '-')
+    {
+        return 1;
+    }
+    else if (operators == '*' || operators == '/')
+    {
+        return 2;
+    }
+    else if (operators == '^')
+    {
+        return 3;
+    }
+    else
+        return 0;
+}
+
+char *infixToPostfixConvertion(char *infix)
+{
+    MyStackList stack;
+    int size = strlen(infix);
+    char *postfix = new char[size + 1];
+    postfix[0] = 'g';
+    postfix[1] = 'a';
+    postfix[2] = 'y';
+
+    int i, j;
+
+    i = j = 0;
+
+    while (infix[i] != '\0')
+    {
+        if (isOperand(infix[i]))
+        {
+
+            postfix[j] = infix[i];
+            i++;
+            j++;
+        }
+        else
+        {
+            if (operatorPrecedency(infix[i]) > operatorPrecedency(stack.peek()))
+            {
+                stack.push(infix[i]);
+                i++;
+            }
+            else
+            {
+                postfix[j] = stack.pop();
+                j++;
+            }
+        }
+    }
+
+    while (!stack.isEmpty())
+    {
+        postfix[j] = stack.pop();
+        j++;
+    }
+
+    postfix[j] = '\0';
+
+    return postfix;
+}
+
+void testInfixToPostfixConvertion()
+{
+    char infix[] = {'a', '+', 'b', '+', 'c', '+', 'd', '\0'};
+    char *postfix = infixToPostfixConvertion(infix);
+    std::cout << postfix << std::endl;
+}
+
 int main()
 {
-    testCheckParenthesis();
+    testInfixToPostfixConvertion();
 }
