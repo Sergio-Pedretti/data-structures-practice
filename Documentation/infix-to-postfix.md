@@ -15,3 +15,11 @@
 3. Assess precedency of current value
 4. Loop over char expression
 5. According 1 and 2 insert or remove from stack and place it on postfix variable;
+
+| operators | Precedency out of stack | Precedency in stack | Associativity |
+| :-------- | :---------------------: | :-----------------: | ------------: |
+| +, -      |            1            |          2          |        L -> R |
+| \*, /     |            3            |          4          |        L -> R |
+| ^         |            6            |          5          |        R -> L |
+| (         |            7            |          0          |        R -> L |
+| )         |            0            |   ? (do not have)   |        L -> R |
