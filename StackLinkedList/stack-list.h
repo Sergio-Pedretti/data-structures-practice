@@ -14,7 +14,7 @@ public:
     void push(int value);
     int pop();
     bool isEmpty();
-    void peek();
+    char peek();
     void clear();
 };
 

@@ -53,12 +53,13 @@ bool MyStackList::isEmpty()
     return false;
 }
 
-void MyStackList::peek()
+char MyStackList::peek()
 {
     if (this->isEmpty())
-        return;
+        return 'e';
 
     std::cout << "Peek: " << top->value << std::endl;
+    return top->value;
 }
 
 void MyStackList::clear()
