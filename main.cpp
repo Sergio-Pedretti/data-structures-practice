@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string.h>
+#include <math.h>
 
 #include "./LinkedList/linked-list.h"
 #include "./CircularLinkedList/circular-linked-list.h"
@@ -95,7 +96,7 @@ void testStackWithArray()
 
 void testStackWithList()
 {
-    MyStackList stack;
+    MyStackList<int> stack;
     std::cout << "----------------" << std::endl;
     stack.push(2);
     stack.push(4);
@@ -129,7 +130,7 @@ void testStackWithList()
 
 int checkParenthesisMatch(char expression[])
 {
-    MyStackList stack;
+    MyStackList<char> stack;
     int size = strlen(expression);
     for (int i = 0; i < size; i++)
     {
@@ -197,7 +198,7 @@ int operatorPrecedency(char operators)
 
 char *infixToPostfixConvertion(char *infix)
 {
-    MyStackList stack;
+    MyStackList<char> stack;
     int size = strlen(infix);
     char *postfix = new char[size + 1];
 
@@ -286,7 +287,7 @@ int operatorPrecedencyOutOfStack(char operators)
 
 char *infixToPostfixConvertionWithParenthesis(char *infix)
 {
-    MyStackList stack;
+    MyStackList<char> stack;
     int size = strlen(infix);
     char *postfix = new char[size + 1];
 
@@ -299,7 +300,6 @@ char *infixToPostfixConvertionWithParenthesis(char *infix)
 
         if (isOperand(infix[i]))
         {
-
             postfix[j] = infix[i];
             i++;
             j++;
@@ -341,11 +341,59 @@ char *infixToPostfixConvertionWithParenthesis(char *infix)
     return postfix;
 }
 
+int evaluatePostfixExpression(char *postfix)
+{
+    MyStackList<int> stack;
+
+    int i = 0;
+    while (postfix[i] != '\0')
+    {
+        if (isOperand(postfix[i]))
+        {
+            char temp = postfix[i];
+            int element = temp - '0';
+            stack.push(element);
+            i++;
+        }
+        else
+        {
+            int first = stack.pop();
+            int second = stack.pop();
+
+            int result = 0;
+            switch (postfix[i])
+            {
+            case '+':
+                result = second + first;
+                break;
+            case '-':
+                result = second - first;
+                break;
+            case '/':
+                result = second / first;
+                break;
+            case '*':
+                result = second * first;
+                break;
+            case '^':
+                result = pow(second, first);
+                break;
+            default:
+                break;
+            }
+            stack.push(result);
+            i++;
+        }
+    }
+    return stack.pop();
+}
 void testInfixToPostfixConvertion()
 {
-    char infix[] = {'(', '(', 'a', '+', 'b', ')', '*', 'c', ')', '-', 'd', '^', 'e', '^', 'f', '\0'};
+    char infix[] = {'(', '(', '5', '+', '3', ')', '*', '2', ')', '-', '6', '^', '2', '^', '2', '\0'};
     char *postfix = infixToPostfixConvertionWithParenthesis(infix);
     std::cout << postfix << std::endl;
+    int evaluation = evaluatePostfixExpression(postfix);
+    std::cout << evaluation << std::endl;
 }
 
 int main()
