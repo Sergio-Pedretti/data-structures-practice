@@ -1,12 +1,13 @@
 #ifndef NODE_H
 #define NODE_H
 
+template <typename T>
 class Node
 {
 public:
-    char value;
-    Node *next;
-    Node(char value);
+    T value;
+    Node<T> *next;
+    Node(T value);
 };
 
 #endif

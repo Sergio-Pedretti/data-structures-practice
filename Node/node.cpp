@@ -1,7 +1,12 @@
 #include "node.h"
 
-Node::Node(char newValue = '0')
+template <typename T>
+Node<T>::Node(T newValue)
 {
     value = newValue;
     next = nullptr;
 }
+
+template class Node<int>;
+template class Node<char>;
+template class Node<float>;
