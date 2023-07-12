@@ -1,13 +1,15 @@
 #include "stack-list.h"
 
-MyStackList::MyStackList()
+template <typename T>
+MyStackList<T>::MyStackList()
 {
     top = nullptr;
 }
 
-void MyStackList::display()
+template <typename T>
+void MyStackList<T>::display()
 {
-    Node *temp = top;
+    Node<T> *temp = top;
     while (temp != nullptr)
     {
         std::cout << temp->value << std::endl;
@@ -15,9 +17,10 @@ void MyStackList::display()
     }
 }
 
-void MyStackList::push(int value)
+template <typename T>
+void MyStackList<T>::push(T value)
 {
-    Node *newNode = new Node(value);
+    Node<T> *newNode = new Node(value);
 
     if (top != nullptr)
     {
@@ -27,7 +30,8 @@ void MyStackList::push(int value)
     return;
 }
 
-int MyStackList::pop()
+template <typename T>
+T MyStackList<T>::pop()
 {
     int value = -1;
     if (this->isEmpty())
@@ -35,7 +39,7 @@ int MyStackList::pop()
     }
     else
     {
-        Node *temp = top;
+        Node<T> *temp = top;
         top = temp->next;
         value = temp->value;
         delete temp;
@@ -43,7 +47,8 @@ int MyStackList::pop()
     return value;
 }
 
-bool MyStackList::isEmpty()
+template <typename T>
+bool MyStackList<T>::isEmpty()
 {
     if (top == nullptr)
     {
@@ -53,23 +58,29 @@ bool MyStackList::isEmpty()
     return false;
 }
 
-char MyStackList::peek()
+template <typename T>
+T MyStackList<T>::peek()
 {
     if (this->isEmpty())
-        return 'e';
+        return -1;
 
     std::cout << "Peek: " << top->value << std::endl;
     return top->value;
 }
 
-void MyStackList::clear()
+template <typename T>
+void MyStackList<T>::clear()
 {
-    Node *temp = top;
+    Node<T> *temp = top;
     while (temp != nullptr)
     {
-        Node *temp2 = temp;
+        Node<T> *temp2 = temp;
         temp = temp->next;
         delete temp2;
     }
     top = nullptr;
 }
+
+template class MyStackList<int>;
+template class MyStackList<char>;
+template class MyStackList<float>;

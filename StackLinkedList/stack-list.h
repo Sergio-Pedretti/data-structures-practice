@@ -4,17 +4,18 @@
 #include <iostream>
 #include "../Node/node.h"
 
+template <typename T>
 class MyStackList
 {
-    Node *top;
+    Node<T> *top;
 
 public:
     MyStackList();
     void display();
-    void push(int value);
-    int pop();
+    void push(T value);
+    T pop();
     bool isEmpty();
-    char peek();
+    T peek();
     void clear();
 };
 
