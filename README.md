@@ -2,8 +2,8 @@
 
 ## My goal with this repo is to study basic data structures using c++
 
-- [ ] Linked lists
-- [ ] Stacks
+- [x] Linked lists
+- [x] Stacks
 - [ ] Queues
 - [ ] Hashmap
 - [ ] Binary Tree (and others)
