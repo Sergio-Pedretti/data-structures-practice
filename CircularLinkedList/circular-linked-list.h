@@ -6,11 +6,11 @@
 
 class MyCircularLinkedList
 {
-    Node *head;
+    Node<int> *head;
     void deleteHead();
 
 public:
-    Node *getHead();
+    Node<int> *getHead();
     void insert(int element);
     void deleteAtIndex(int index);
     void print();

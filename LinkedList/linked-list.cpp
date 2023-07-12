@@ -5,7 +5,7 @@ MyLinkedList::MyLinkedList()
     head = nullptr;
 }
 
-Node *MyLinkedList::getHead()
+Node<int> *MyLinkedList::getHead()
 {
     return this->head;
 }
@@ -18,7 +18,7 @@ void MyLinkedList::print()
         return;
     }
 
-    Node *temp = head;
+    Node<int> *temp = head;
     while (temp != nullptr)
     {
         std::cout << temp->value << std::endl;
@@ -26,7 +26,7 @@ void MyLinkedList::print()
     }
 }
 
-void MyLinkedList::printRecursive(Node *start)
+void MyLinkedList::printRecursive(Node<int> *start)
 {
     if (start == nullptr)
     {
@@ -39,7 +39,7 @@ void MyLinkedList::printRecursive(Node *start)
 void MyLinkedList::countAllNodes()
 {
     int counter = 0;
-    Node *temp = head;
+    Node<int> *temp = head;
     while (temp != nullptr)
     {
         counter++;
@@ -51,7 +51,7 @@ void MyLinkedList::countAllNodes()
 void MyLinkedList::sumAllNodes()
 {
     int sum = 0;
-    Node *temp = head;
+    Node<int> *temp = head;
     while (temp != nullptr)
     {
         sum += temp->value;
@@ -62,7 +62,7 @@ void MyLinkedList::sumAllNodes()
 
 void MyLinkedList::insertBegin(int element)
 {
-    Node *temp = new Node(element);
+    Node<int> *temp = new Node<int>(element);
     if (head != nullptr)
     {
         temp->next = head;
@@ -72,8 +72,8 @@ void MyLinkedList::insertBegin(int element)
 
 void MyLinkedList::insertEnd(int element)
 {
-    Node *newNode = new Node(element);
-    Node *temp = head;
+    Node<int> *newNode = new Node(element);
+    Node<int> *temp = head;
 
     if (temp == nullptr)
     {
@@ -91,7 +91,7 @@ void MyLinkedList::insertEnd(int element)
 
 void MyLinkedList::insertAtIndex(int element, int index)
 {
-    Node *newNode = new Node(element);
+    Node<int> *newNode = new Node(element);
 
     if (index == 1)
     {
@@ -100,7 +100,7 @@ void MyLinkedList::insertAtIndex(int element, int index)
         return;
     }
 
-    Node *temp2 = head;
+    Node<int> *temp2 = head;
 
     for (int counter = 0; counter < index - 2; counter++)
     {
@@ -113,22 +113,22 @@ void MyLinkedList::insertAtIndex(int element, int index)
 
 void MyLinkedList::deleteAtIndex(int index)
 {
-    Node *temp = head;
+    Node<int> *temp = head;
 
     for (int counter = 0; counter < index - 2; counter++)
     {
         temp = temp->next;
     }
 
-    Node *temp2 = temp->next;
+    Node<int> *temp2 = temp->next;
     temp->next = temp2->next;
 
     delete temp2;
 }
 
-Node *MyLinkedList::searchElement(int element)
+Node<int> *MyLinkedList::searchElement(int element)
 {
-    Node *temp = head;
+    Node<int> *temp = head;
 
     while (temp != nullptr)
     {
@@ -145,7 +145,7 @@ Node *MyLinkedList::searchElement(int element)
 
 bool MyLinkedList::isSorted()
 {
-    Node *temp, *temp2 = head;
+    Node<int> *temp, *temp2 = head;
 
     while (temp != nullptr)
     {
@@ -163,9 +163,9 @@ bool MyLinkedList::isSorted()
 
 void MyLinkedList::insertSorted(int element)
 {
-    Node *temp = head;
-    Node *temp2 = head;
-    Node *newNode = new Node(element);
+    Node<int> *temp = head;
+    Node<int> *temp2 = head;
+    Node<int> *newNode = new Node(element);
 
     if (head == nullptr)
     {
@@ -201,9 +201,9 @@ void MyLinkedList::reverseList()
         return;
     }
 
-    Node *temp = head;
-    Node *temp2 = nullptr;
-    Node *temp3 = nullptr;
+    Node<int> *temp = head;
+    Node<int> *temp2 = nullptr;
+    Node<int> *temp3 = nullptr;
 
     while (temp != nullptr)
     {
@@ -225,8 +225,8 @@ bool MyLinkedList::checkForLoop()
         return false;
     }
 
-    Node *temp = head;
-    Node *temp2 = head;
+    Node<int> *temp = head;
+    Node<int> *temp2 = head;
 
     do
     {

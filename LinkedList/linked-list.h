@@ -6,17 +6,17 @@
 
 class MyLinkedList
 {
-    Node *head;
+    Node<int> *head;
 
 public:
-    Node *getHead();
+    Node<int> *getHead();
     void insertBegin(int element);
     void insertEnd(int element);
     void insertAtIndex(int element, int index);
     void deleteAtIndex(int index);
-    Node *searchElement(int element);
+    Node<int> *searchElement(int element);
     void print();
-    void printRecursive(Node *start);
+    void printRecursive(Node<int> *start);
     void countAllNodes();
     void sumAllNodes();
     bool isSorted();

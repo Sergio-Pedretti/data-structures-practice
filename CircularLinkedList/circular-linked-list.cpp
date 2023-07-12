@@ -5,7 +5,7 @@ MyCircularLinkedList::MyCircularLinkedList()
     head = nullptr;
 }
 
-Node *MyCircularLinkedList::getHead()
+Node<int> *MyCircularLinkedList::getHead()
 {
     return this->head;
 }
@@ -18,7 +18,7 @@ void MyCircularLinkedList::print()
         return;
     }
 
-    Node *temp = head;
+    Node<int> *temp = head;
 
     do
     {
@@ -29,8 +29,8 @@ void MyCircularLinkedList::print()
 
 void MyCircularLinkedList::insert(int element)
 {
-    Node *newNode = new Node(element);
-    Node *temp = head;
+    Node<int> *newNode = new Node(element);
+    Node<int> *temp = head;
 
     if (temp == nullptr)
     {
@@ -40,7 +40,7 @@ void MyCircularLinkedList::insert(int element)
         return;
     }
 
-    Node *temp2 = nullptr;
+    Node<int> *temp2 = nullptr;
 
     do
     {
@@ -55,7 +55,7 @@ void MyCircularLinkedList::insert(int element)
 
 void MyCircularLinkedList::deleteHead()
 {
-    Node *temp = head;
+    Node<int> *temp = head;
 
     while (temp->next != head)
     {
@@ -80,14 +80,14 @@ void MyCircularLinkedList::deleteAtIndex(int index)
         this->deleteHead();
         return;
     }
-    Node *temp = head;
+    Node<int> *temp = head;
 
     for (int counter = 0; counter < index - 2; counter++)
     {
         temp = temp->next;
     }
 
-    Node *temp2 = temp->next;
+    Node<int> *temp2 = temp->next;
     temp->next = temp2->next;
 
     delete temp2;
