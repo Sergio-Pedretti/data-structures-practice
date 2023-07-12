@@ -387,6 +387,7 @@ int evaluatePostfixExpression(char *postfix)
     }
     return stack.pop();
 }
+
 void testInfixToPostfixConvertion()
 {
     char infix[] = {'(', '(', '5', '+', '3', ')', '*', '2', ')', '-', '6', '^', '2', '^', '2', '\0'};
@@ -394,6 +395,10 @@ void testInfixToPostfixConvertion()
     std::cout << postfix << std::endl;
     int evaluation = evaluatePostfixExpression(postfix);
     std::cout << evaluation << std::endl;
+}
+
+void testQueueWithArray()
+{
 }
 
 int main()
