@@ -5,14 +5,14 @@ MyQueueArray::MyQueueArray(int queueSize)
     size = queueSize;
     front = -1;
     rear = -1;
-    s = new int(queueSize);
+    q = new int(queueSize);
 }
 
 void MyQueueArray::display()
 {
-    for (int i = front; i == rear; i--)
+    for (int i = front + 1; i <= rear; i++)
     {
-        std::cout << s[i] << std::endl;
+        std::cout << q[i] << std::endl;
     }
 }
 
@@ -24,27 +24,24 @@ void MyQueueArray::enqueue(int value)
     }
 
     rear++;
-    s[rear] = value;
+    q[rear] = value;
     return;
 }
 
 int MyQueueArray::dequeue()
 {
     int value = -1;
-    if (this->isEmpty())
+    if (!this->isEmpty())
     {
-    }
-    else
-    {
-        value = s[front];
         front++;
+        value = q[front];
     }
     return value;
 }
 
 bool MyQueueArray::isEmpty()
 {
-    if (front == -1)
+    if (front == rear)
     {
         std::cout << "Stack is empty" << std::endl;
         return true;
@@ -54,7 +51,7 @@ bool MyQueueArray::isEmpty()
 
 bool MyQueueArray::isFull()
 {
-    if (front == rear)
+    if (rear == size - 1)
     {
         std::cout << "Queue is full (Queue would Overflow)" << std::endl;
         return true;
@@ -67,5 +64,5 @@ void MyQueueArray::peek()
     if (this->isEmpty())
         return;
 
-    std::cout << "Peek: " << s[front] << std::endl;
+    std::cout << "Peek: " << q[front] << std::endl;
 }

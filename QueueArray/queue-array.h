@@ -8,7 +8,7 @@ class MyQueueArray
     int size;
     int front;
     int rear;
-    int *s;
+    int *q;
 
 public:
     MyQueueArray(int queueSize);

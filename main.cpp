@@ -7,6 +7,7 @@
 #include "./DoubleLinkedList/double-linked-list.h"
 #include "./StackArray/stack-array.h"
 #include "./StackLinkedList/stack-list.h"
+#include "./QueueArray/queue-array.h"
 
 void testLinkedList()
 {
@@ -399,9 +400,23 @@ void testInfixToPostfixConvertion()
 
 void testQueueWithArray()
 {
+    MyQueueArray queue(6);
+    queue.enqueue(2);
+    queue.enqueue(4);
+    queue.enqueue(7);
+    queue.enqueue(15);
+    queue.enqueue(28);
+    queue.enqueue(99);
+    queue.enqueue(100);
+    queue.display();
+    std::cout << "-------------" << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << queue.dequeue() << std::endl;
 }
 
 int main()
 {
-    testInfixToPostfixConvertion();
+    testQueueWithArray();
 }
