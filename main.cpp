@@ -8,6 +8,7 @@
 #include "./StackArray/stack-array.h"
 #include "./StackLinkedList/stack-list.h"
 #include "./QueueArray/queue-array.h"
+#include "./CircularQueueArray/circular-queue-array.h"
 
 void testLinkedList()
 {
@@ -416,7 +417,27 @@ void testQueueWithArray()
     std::cout << queue.dequeue() << std::endl;
 }
 
+void testCircularQueueWithArray()
+{
+    MyCircularQueueArray queue(7);
+    std::cout << "-------------" << std::endl;
+    queue.enqueue(2);
+    queue.enqueue(4);
+    queue.enqueue(7);
+    queue.enqueue(15);
+    queue.enqueue(28);
+    queue.enqueue(99);
+    queue.enqueue(100);
+    queue.display();
+    std::cout << "-------------" << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << "-------------" << std::endl;
+    queue.display();
+}
 int main()
 {
-    testQueueWithArray();
+    testCircularQueueWithArray();
 }
