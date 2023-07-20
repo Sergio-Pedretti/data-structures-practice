@@ -1,14 +1,16 @@
 #include "queue-linked-list.h"
 
-MyQueueLinkedList::MyQueueLinkedList()
+template <typename T>
+MyQueueLinkedList<T>::MyQueueLinkedList()
 {
     front = nullptr;
     rear = nullptr;
 }
 
-void MyQueueLinkedList::display()
+template <typename T>
+void MyQueueLinkedList<T>::display()
 {
-    Node<int> *temp = front;
+    Node<T> *temp = front;
     while (temp != nullptr)
     {
         std::cout << temp->value << std::endl;
@@ -16,9 +18,10 @@ void MyQueueLinkedList::display()
     }
 }
 
-void MyQueueLinkedList::enqueue(int value)
+template <typename T>
+void MyQueueLinkedList<T>::enqueue(T value)
 {
-    Node<int> *temp = new Node(value);
+    Node<T> *temp = new Node(value);
     if (this->isEmpty())
     {
         front = temp;
@@ -30,12 +33,13 @@ void MyQueueLinkedList::enqueue(int value)
     return;
 }
 
-int MyQueueLinkedList::dequeue()
+template <typename T>
+T MyQueueLinkedList<T>::dequeue()
 {
-    int value = -1;
+    T value = -1;
     if (!this->isEmpty())
     {
-        Node<int> *temp = front;
+        Node<T> *temp = front;
         value = temp->value;
         front = front->next;
         delete temp;
@@ -43,7 +47,8 @@ int MyQueueLinkedList::dequeue()
     return value;
 }
 
-bool MyQueueLinkedList::isEmpty()
+template <typename T>
+bool MyQueueLinkedList<T>::isEmpty()
 {
     if (front == nullptr)
     {
@@ -53,10 +58,15 @@ bool MyQueueLinkedList::isEmpty()
     return false;
 }
 
-void MyQueueLinkedList::peek()
+template <typename T>
+void MyQueueLinkedList<T>::peek()
 {
     if (this->isEmpty())
         return;
 
     std::cout << "Peek: " << front->value << std::endl;
 }
+
+template class MyQueueLinkedList<int>;
+template class MyQueueLinkedList<char>;
+template class MyQueueLinkedList<float>;

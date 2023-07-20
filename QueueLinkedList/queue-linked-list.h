@@ -3,17 +3,17 @@
 
 #include <iostream>
 #include "../Node/node.h"
-
+template <typename T>
 class MyQueueLinkedList
 {
-    Node<int> *front;
-    Node<int> *rear;
+    Node<T> *front;
+    Node<T> *rear;
 
 public:
     MyQueueLinkedList();
     void display();
-    void enqueue(int value);
-    int dequeue();
+    void enqueue(T value);
+    T dequeue();
     bool isEmpty();
     void peek();
 };
