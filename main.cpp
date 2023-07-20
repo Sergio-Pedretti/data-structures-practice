@@ -10,10 +10,11 @@
 #include "./QueueArray/queue-array.h"
 #include "./CircularQueueArray/circular-queue-array.h"
 #include "./QueueLinkedList/queue-linked-list.h"
+#include "./QueuePrioritySet/queue-priority-set.h"
 
 void testLinkedList()
 {
-    MyLinkedList list;
+    MyLinkedList<int> list;
     list.insertAtIndex(2, 1); // 2
     list.insertAtIndex(3, 2); // 2, 3
     list.insertAtIndex(4, 1); // 4, 2, 3
@@ -441,7 +442,7 @@ void testCircularQueueWithArray()
 
 void testQueueWithLinkedList()
 {
-    MyQueueLinkedList queue;
+    MyQueueLinkedList<int> queue;
     std::cout << "-------------" << std::endl;
     queue.enqueue(2);
     queue.enqueue(4);
@@ -460,7 +461,43 @@ void testQueueWithLinkedList()
     std::cout << "-------------" << std::endl;
     queue.display();
 }
+
+void testQueuePriority()
+{
+    MyQueuePriority queue;
+    std::cout << "-------------" << std::endl;
+
+    Priority first;
+    first.value = 'A';
+    first.level = High;
+
+    Priority second;
+    second.value = 'B';
+    second.level = Medium;
+
+    Priority third;
+    third.value = 'C';
+    third.level = Low;
+
+    Priority fourth;
+    fourth.value = 'D';
+    fourth.level = High;
+
+    queue.enqueue(first);
+    queue.enqueue(second);
+    queue.enqueue(third);
+    queue.enqueue(fourth);
+    queue.display();
+    std::cout << "-------------" << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << queue.dequeue() << std::endl;
+    std::cout << "-------------" << std::endl;
+    queue.display();
+}
+
 int main()
 {
-    testQueueWithLinkedList();
+    testQueuePriority();
 }
