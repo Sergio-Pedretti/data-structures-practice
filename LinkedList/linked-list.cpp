@@ -1,16 +1,19 @@
 #include "linked-list.h"
 
-MyLinkedList::MyLinkedList()
+template <typename T>
+MyLinkedList<T>::MyLinkedList()
 {
     head = nullptr;
 }
 
-Node<int> *MyLinkedList::getHead()
+template <typename T>
+Node<T> *MyLinkedList<T>::getHead()
 {
     return this->head;
 }
 
-void MyLinkedList::print()
+template <typename T>
+void MyLinkedList<T>::print()
 {
     if (head == nullptr)
     {
@@ -18,15 +21,15 @@ void MyLinkedList::print()
         return;
     }
 
-    Node<int> *temp = head;
+    Node<T> *temp = head;
     while (temp != nullptr)
     {
         std::cout << temp->value << std::endl;
         temp = temp->next;
     }
 }
-
-void MyLinkedList::printRecursive(Node<int> *start)
+template <typename T>
+void MyLinkedList<T>::printRecursive(Node<T> *start)
 {
     if (start == nullptr)
     {
@@ -36,10 +39,11 @@ void MyLinkedList::printRecursive(Node<int> *start)
     printRecursive(start->next);
 }
 
-void MyLinkedList::countAllNodes()
+template <typename T>
+void MyLinkedList<T>::countAllNodes()
 {
     int counter = 0;
-    Node<int> *temp = head;
+    Node<T> *temp = head;
     while (temp != nullptr)
     {
         counter++;
@@ -48,10 +52,11 @@ void MyLinkedList::countAllNodes()
     std::cout << "List has " << counter << " nodes" << std::endl;
 }
 
-void MyLinkedList::sumAllNodes()
+template <typename T>
+void MyLinkedList<T>::sumAllNodes()
 {
-    int sum = 0;
-    Node<int> *temp = head;
+    T sum = 0;
+    Node<T> *temp = head;
     while (temp != nullptr)
     {
         sum += temp->value;
@@ -59,10 +64,10 @@ void MyLinkedList::sumAllNodes()
     }
     std::cout << "Total sum list: " << sum << std::endl;
 }
-
-void MyLinkedList::insertBegin(int element)
+template <typename T>
+void MyLinkedList<T>::insertBegin(T element)
 {
-    Node<int> *temp = new Node<int>(element);
+    Node<T> *temp = new Node<T>(element);
     if (head != nullptr)
     {
         temp->next = head;
@@ -70,10 +75,11 @@ void MyLinkedList::insertBegin(int element)
     head = temp;
 }
 
-void MyLinkedList::insertEnd(int element)
+template <typename T>
+void MyLinkedList<T>::insertEnd(T element)
 {
-    Node<int> *newNode = new Node(element);
-    Node<int> *temp = head;
+    Node<T> *newNode = new Node(element);
+    Node<T> *temp = head;
 
     if (temp == nullptr)
     {
@@ -89,9 +95,10 @@ void MyLinkedList::insertEnd(int element)
     temp->next = newNode;
 }
 
-void MyLinkedList::insertAtIndex(int element, int index)
+template <typename T>
+void MyLinkedList<T>::insertAtIndex(T element, int index)
 {
-    Node<int> *newNode = new Node(element);
+    Node<T> *newNode = new Node(element);
 
     if (index == 1)
     {
@@ -100,7 +107,7 @@ void MyLinkedList::insertAtIndex(int element, int index)
         return;
     }
 
-    Node<int> *temp2 = head;
+    Node<T> *temp2 = head;
 
     for (int counter = 0; counter < index - 2; counter++)
     {
@@ -111,24 +118,26 @@ void MyLinkedList::insertAtIndex(int element, int index)
     temp2->next = newNode;
 }
 
-void MyLinkedList::deleteAtIndex(int index)
+template <typename T>
+void MyLinkedList<T>::deleteAtIndex(int index)
 {
-    Node<int> *temp = head;
+    Node<T> *temp = head;
 
     for (int counter = 0; counter < index - 2; counter++)
     {
         temp = temp->next;
     }
 
-    Node<int> *temp2 = temp->next;
+    Node<T> *temp2 = temp->next;
     temp->next = temp2->next;
 
     delete temp2;
 }
 
-Node<int> *MyLinkedList::searchElement(int element)
+template <typename T>
+Node<T> *MyLinkedList<T>::searchElement(T element)
 {
-    Node<int> *temp = head;
+    Node<T> *temp = head;
 
     while (temp != nullptr)
     {
@@ -143,9 +152,10 @@ Node<int> *MyLinkedList::searchElement(int element)
     return temp;
 }
 
-bool MyLinkedList::isSorted()
+template <typename T>
+bool MyLinkedList<T>::isSorted()
 {
-    Node<int> *temp, *temp2 = head;
+    Node<T> *temp, *temp2 = head;
 
     while (temp != nullptr)
     {
@@ -161,11 +171,12 @@ bool MyLinkedList::isSorted()
     return true;
 }
 
-void MyLinkedList::insertSorted(int element)
+template <typename T>
+void MyLinkedList<T>::insertSorted(T element)
 {
-    Node<int> *temp = head;
-    Node<int> *temp2 = head;
-    Node<int> *newNode = new Node(element);
+    Node<T> *temp = head;
+    Node<T> *temp2 = head;
+    Node<T> *newNode = new Node(element);
 
     if (head == nullptr)
     {
@@ -193,7 +204,8 @@ void MyLinkedList::insertSorted(int element)
     temp2->next = newNode;
 }
 
-void MyLinkedList::reverseList()
+template <typename T>
+void MyLinkedList<T>::reverseList()
 {
     if (head == nullptr)
     {
@@ -201,9 +213,9 @@ void MyLinkedList::reverseList()
         return;
     }
 
-    Node<int> *temp = head;
-    Node<int> *temp2 = nullptr;
-    Node<int> *temp3 = nullptr;
+    Node<T> *temp = head;
+    Node<T> *temp2 = nullptr;
+    Node<T> *temp3 = nullptr;
 
     while (temp != nullptr)
     {
@@ -217,7 +229,8 @@ void MyLinkedList::reverseList()
     head = temp2;
 }
 
-bool MyLinkedList::checkForLoop()
+template <typename T>
+bool MyLinkedList<T>::checkForLoop()
 {
     if (head == nullptr)
     {
@@ -225,8 +238,8 @@ bool MyLinkedList::checkForLoop()
         return false;
     }
 
-    Node<int> *temp = head;
-    Node<int> *temp2 = head;
+    Node<T> *temp = head;
+    Node<T> *temp2 = head;
 
     do
     {
@@ -247,3 +260,7 @@ bool MyLinkedList::checkForLoop()
 
     return false;
 }
+
+template class MyLinkedList<int>;
+template class MyLinkedList<char>;
+template class MyLinkedList<float>;

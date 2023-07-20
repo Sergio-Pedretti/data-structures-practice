@@ -4,23 +4,24 @@
 #include <iostream>
 #include "../Node/node.h"
 
+template <typename T>
 class MyLinkedList
 {
-    Node<int> *head;
+    Node<T> *head;
 
 public:
-    Node<int> *getHead();
-    void insertBegin(int element);
-    void insertEnd(int element);
-    void insertAtIndex(int element, int index);
+    Node<T> *getHead();
+    void insertBegin(T element);
+    void insertEnd(T element);
+    void insertAtIndex(T element, int index);
     void deleteAtIndex(int index);
-    Node<int> *searchElement(int element);
+    Node<T> *searchElement(T element);
     void print();
-    void printRecursive(Node<int> *start);
+    void printRecursive(Node<T> *start);
     void countAllNodes();
     void sumAllNodes();
     bool isSorted();
-    void insertSorted(int element);
+    void insertSorted(T element);
     void reverseList();
     bool checkForLoop();
     MyLinkedList();
