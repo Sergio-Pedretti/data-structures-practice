@@ -4,7 +4,7 @@
 
 - [x] Linked lists
 - [x] Stacks
-- [ ] Queues
+- [x] Queues
 - [ ] Hashmap
 - [ ] Binary Tree (and others)
 - [ ] Graphs
