@@ -65,3 +65,19 @@ $e = i+1$
         struct Node *rchild;
     }
 ```
+
+## Difference between Full and Complete Binary Tree
+
+Full Binary Tree &rarr; There is no blank spaces in the tree and it has max node possible
+
+Complete Binary Tree &rarr; There is no blank spaces in the tree but don't have max node possible
+
+## Traversal Orders
+
+### Preorder &rarr; visit(node), Preorder(lsubtree), Preorder(rsubtree)
+
+### Inorder &rarr; Inoder(lsubtree), visit(node), Inorder(rsubtree)
+
+### Postorder &rarr; Postorder(lsubtree), Postorder(rsubtree), Visit(node)
+
+### LevelOrder &rarr; Visit all nodes level by level
