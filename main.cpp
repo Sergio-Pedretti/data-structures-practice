@@ -11,6 +11,7 @@
 #include "./CircularQueueArray/circular-queue-array.h"
 #include "./QueueLinkedList/queue-linked-list.h"
 #include "./QueuePrioritySet/queue-priority-set.h"
+#include "./TreeQueue/tree-queue.h"
 
 void testLinkedList()
 {
@@ -403,7 +404,7 @@ void testInfixToPostfixConvertion()
 
 void testQueueWithArray()
 {
-    MyQueueArray queue(6);
+    MyQueueArray<int> queue(6);
     queue.enqueue(2);
     queue.enqueue(4);
     queue.enqueue(7);
@@ -497,7 +498,15 @@ void testQueuePriority()
     queue.display();
 }
 
+void testTreeQueue()
+{
+    MyTreeQueue<int> queue;
+    std::cout << "-------------" << std::endl;
+
+    queue.CreateTree();
+    queue.PreOrder();
+}
 int main()
 {
-    testQueuePriority();
+    testTreeQueue();
 }
