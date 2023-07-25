@@ -2,20 +2,18 @@
 #define QUEUEARRAY_H
 
 #include <iostream>
-#include "../TreeNode/tree-node.h"
-template <typename T>
 class MyQueueArray
 {
-    T size;
-    T front;
-    T rear;
-    MyTreeNode<T> **q;
+    int size;
+    int front;
+    int rear;
+    int *q;
 
 public:
     MyQueueArray(int queueSize);
     void display();
-    void enqueue(T value);
-    T dequeue();
+    void enqueue(int value);
+    int dequeue();
     bool isEmpty();
     bool isFull();
     void peek();

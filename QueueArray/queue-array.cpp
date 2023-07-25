@@ -1,16 +1,14 @@
 #include "queue-array.h"
 
-template <typename T>
-MyQueueArray<T>::MyQueueArray(int queueSize)
+MyQueueArray::MyQueueArray(int queueSize)
 {
     size = queueSize;
     front = -1;
     rear = -1;
-    *q = new MyTreeNode<T>[queueSize];
+    q = new int(queueSize);
 }
 
-template <typename T>
-void MyQueueArray<T>::display()
+void MyQueueArray::display()
 {
     for (int i = front + 1; i <= rear; i++)
     {
@@ -18,8 +16,7 @@ void MyQueueArray<T>::display()
     }
 }
 
-template <typename T>
-void MyQueueArray<T>::enqueue(T value)
+void MyQueueArray::enqueue(int value)
 {
     if (this->isFull())
     {
@@ -30,10 +27,9 @@ void MyQueueArray<T>::enqueue(T value)
     q[rear] = value;
     return;
 }
-template <typename T>
-T MyQueueArray<T>::dequeue()
+int MyQueueArray::dequeue()
 {
-    T value = -1;
+    int value = -1;
     if (!this->isEmpty())
     {
         front++;
@@ -42,8 +38,7 @@ T MyQueueArray<T>::dequeue()
     return value;
 }
 
-template <typename T>
-bool MyQueueArray<T>::isEmpty()
+bool MyQueueArray::isEmpty()
 {
     if (front == rear)
     {
@@ -53,8 +48,7 @@ bool MyQueueArray<T>::isEmpty()
     return false;
 }
 
-template <typename T>
-bool MyQueueArray<T>::isFull()
+bool MyQueueArray::isFull()
 {
     if (rear == size - 1)
     {
@@ -64,8 +58,7 @@ bool MyQueueArray<T>::isFull()
     return false;
 }
 
-template <typename T>
-void MyQueueArray<T>::peek()
+void MyQueueArray::peek()
 {
     if (this->isEmpty())
         return;
